@@ -2,53 +2,62 @@ package com.udacity.jwdnd.course1.cloudstorage.model;
 
 import org.springframework.stereotype.Component;
 
+import lombok.Data;
+
+
+@Data
 @Component
 public class Notes {
-private int note_id;
-private String title;
-private String description;
-private int  user_id;
+private Integer noteid;
+private String notetitle;
+private String notedescription;
 
 
-public int getUser_id() {
-	return user_id;
+
+public String getNotedescription() {
+	return notedescription;
 }
-public void setUser_id(int user_id) {
-	this.user_id = user_id;
+public void setNotedescription(String notedescription) {
+	this.notedescription = notedescription;
 }
-public int getNote_id() {
-	return note_id;
+
+public String getNotetitle() {
+	return notetitle;
 }
-public void setNote_id(int note_id) {
-	this.note_id = note_id;
+public void setNotetitle(String notetitle) {
+	this.notetitle = notetitle;
 }
-public String getTitle() {
-	return title;
+
+private Integer  userid;
+public Integer getUserid() {
+	return userid;
 }
-public void setTitle(String title) {
-	this.title = title;
+public void setUserid(Integer user_id) {
+	this.userid = user_id;
 }
-public String getDescription() {
-	return description;
+
+public Integer getNoteid() {
+	return noteid;
 }
-public void setDescription(String description) {
-	this.description = description;
+public void setNoteid(Integer noteid) {
+	this.noteid = noteid;
 }
 public Notes() {
 
 }
-public Notes(int note_id, String title, String description) {
+public Notes(Integer note_id, String title, String description) {
 	super();
-	this.note_id = note_id;
-	this.title = title;
-	this.description = description;
+	this.noteid = note_id;
+	this.notetitle = title;
+	this.notedescription = description;
 }
-public Notes(String title, String description, int user_id) {
+public Notes(String title, String description, Integer user_id) {
 	super();
-	this.title = title;
-	this.description = description;
-	this.user_id = user_id;
+	this.notetitle = title;
+	this.notedescription = description;
+	this.userid = user_id;
 }
+
 
 
 }

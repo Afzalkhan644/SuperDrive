@@ -1,20 +1,23 @@
 package com.udacity.jwdnd.course1.cloudstorage.model;
 
-import java.io.InputStream;
 
 import org.springframework.stereotype.Component;
 
+import lombok.Data;
+
+
+@Data
 @Component
 public class Files {
     private int file_id;
 	private String filename;
 	private  String contenttype;
 	private long fileSize;
-	private InputStream filedata;
-	private int user_id;
+	private byte[] filedata;
+	private Integer user_id;
 	
 	
-	public Files(int file_id, String filename, String contenttype, long fileSize, InputStream filedata, int user_id) {
+	public Files(int file_id, String filename, String contenttype, long fileSize, byte[] filedata, Integer user_id) {
 		super();
 		this.file_id = file_id;
 		this.filename = filename;
@@ -53,16 +56,16 @@ public class Files {
 	public void setFileSize(long l) {
 		this.fileSize = l;
 	}
-	public InputStream getFiledata() {
+	public byte[] getFiledata() {
 		return filedata;
 	}
-	public void setFiledata(InputStream filedata) {
+	public void setFiledata(byte[] filedata) {
 		this.filedata = filedata;
 	}
 	public Files() {
 		
 	}
-	public Files(String filename, String contenttype, long fileSize, InputStream filedata) {
+	public Files(String filename, String contenttype, long fileSize, byte[] filedata) {
 
 		this.filename = filename;
 		this.contenttype = contenttype;

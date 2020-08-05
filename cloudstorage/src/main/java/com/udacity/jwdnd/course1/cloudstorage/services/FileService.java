@@ -34,11 +34,12 @@ public List<Files> getFiles(){
 	public void SaveFile(MultipartFile file, Authentication auth)
 	{
 		User u=um.getUser(auth.getName());
-		newFile.setUser_id(u.getUser_id());
+	//	System.out.print("user id"+u.getUser_id());
+		newFile.setUser_id(u.getUserid());
 		newFile.setContenttype(file.getContentType());
 		newFile.setFilename(file.getOriginalFilename());
 		try {
-			newFile.setFiledata(file.getInputStream());
+			newFile.setFiledata(file.getBytes());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,4 +53,15 @@ public List<Files> getFiles(){
 		mapper.deleteFile(file);
 		
 	}
+
+
+
+
+public Files getAfile(String filename) {
+	// TODO Auto-generated method stub
+	return mapper.getAFile(filename);
+}
+
+
+	
 }

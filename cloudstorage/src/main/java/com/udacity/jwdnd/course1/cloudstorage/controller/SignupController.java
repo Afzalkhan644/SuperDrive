@@ -27,6 +27,7 @@ public class SignupController {
 
     @PostMapping()
     public String signupUser(@ModelAttribute User user, Model model) {
+    	
         String signupError = null;
 
         if (!userService.isUsernameAvailable(user.getUsername())) {
@@ -35,7 +36,8 @@ public class SignupController {
 
         if (signupError == null) {
             int rowsAdded = userService.createUser(user);
-            if (rowsAdded < 0) {
+       
+                       if (rowsAdded < 0) {
                 signupError = "There was an error signing you up. Please try again.";
             }
         }

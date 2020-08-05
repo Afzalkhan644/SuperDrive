@@ -33,4 +33,11 @@ private final NotesMapper notesMapper;
 		 return notesMapper.viewAllNotes();
 	 }
 
+	public void deleteNote(String notename) {
+		
+      notesMapper.delete(notename);
+	}
+	  public Integer update(Notes note) {
+	        return  notesMapper.updateNote(note);
+	    }
 }
