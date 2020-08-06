@@ -18,11 +18,11 @@ public interface FileMapper {
 	@Select("SELECT * FROM  FILES")
     List<Files> viewAllFile();
 	
-    @Select("SELECT * FROM FILES WHERE user_id = #{user_id}")
-    Files getFile(int user_id);
+    @Select("SELECT * FROM FILES WHERE userid = #{userid}")
+    Files getFile(int userid);
 	
 
-	@Insert("INSERT INTO FILES (filename,contenttype,fileSize,filedata,userid) VALUES(#{filename},#{contenttype},#{fileSize},#{filedata},#{user_id})")
+	@Insert("INSERT INTO FILES (filename,contenttype,fileSize,filedata,userid) VALUES(#{filename},#{contenttype},#{fileSize},#{filedata},#{userid})")
 	int addMessage(Files files);
 	
 	

@@ -40,4 +40,8 @@ private final NotesMapper notesMapper;
 	  public Integer update(Notes note) {
 	        return  notesMapper.updateNote(note);
 	    }
+	  public Notes getNotesbyId(int id) {
+		  return notesMapper.getNotesbyId(id);
+		  
+	  }
 }

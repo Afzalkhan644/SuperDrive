@@ -62,6 +62,9 @@ public Files getAfile(String filename) {
 	return mapper.getAFile(filename);
 }
 
-
+public Files getfilebyID(int id) {
+	return mapper.getFile(id);
+	
+}
 	
 }

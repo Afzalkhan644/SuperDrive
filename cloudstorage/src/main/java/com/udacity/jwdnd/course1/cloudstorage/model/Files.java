@@ -14,7 +14,7 @@ public class Files {
 	private  String contenttype;
 	private long fileSize;
 	private byte[] filedata;
-	private Integer user_id;
+	private Integer userid;
 	
 	
 	public Files(int file_id, String filename, String contenttype, long fileSize, byte[] filedata, Integer user_id) {
@@ -24,13 +24,13 @@ public class Files {
 		this.contenttype = contenttype;
 		this.fileSize = fileSize;
 		this.filedata = filedata;
-		this.user_id = user_id;
+		this.userid = user_id;
 	}
 	public int getUser_id() {
-		return user_id;
+		return userid;
 	}
 	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+		this.userid = user_id;
 	}
 	public int getFile_id() {
 		return file_id;
@@ -75,7 +75,7 @@ public class Files {
 	@Override
 	public String toString() {
 		return "Files [file_id=" + file_id + ", filename=" + filename + ", contenttype=" + contenttype + ", fileSize="
-				+ fileSize + ", filedata=" + filedata + ", user_id=" + user_id + "]";
+				+ fileSize + ", filedata=" + filedata + ", user_id=" + userid + "]";
 	}
 	
 	

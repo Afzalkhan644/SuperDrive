@@ -3,6 +3,8 @@ package com.udacity.jwdnd.course1.cloudstorage.controller;
 
 
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +38,18 @@ public class FileController {
 	@PostMapping
 	public String uploadFile(@RequestParam("file") MultipartFile file,Authentication auth,Notes notes) {
 		
+			if(file.getSize() > 10000000)
+	        {
+				return "myerror";
+	        }
 		if(fileService.getAfile(file.getOriginalFilename())==null)
-		{fileService.SaveFile(file,auth);	
+		{
+			fileService.SaveFile(file,auth);	
 		 return "redirect:/result?success";	
 		 }
-	else {
+		
 		return "redirect:/result?error";	
-	}
+		
 		}
 	
 @RequestMapping(value="/delete")

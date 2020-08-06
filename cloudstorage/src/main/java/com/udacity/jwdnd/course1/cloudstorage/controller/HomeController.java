@@ -31,11 +31,11 @@ public class HomeController {
 	
 	@GetMapping
 	public String show(Model model,Notes notes,Credentials credential, Authentication auth) {
-		
-		model.addAttribute("notelist",notesService.getAllNotes());
-		System.out.print(notesService.getAllNotes());
-		model.addAttribute("filelist", fileService.getFiles());
 		User u=us.getUser(auth.getName());
+		model.addAttribute("notelist",notesService.getAllNotes());
+		System.out.print(notesService.getNotesbyId(u.getUserid()));
+		model.addAttribute("filelist", fileService.getfilebyID(u.getUserid()));
+		
 		try {
 			model.addAttribute("credlist",cs.getAllCredentials(u.getUserid()));
 		} catch (Exception e) {

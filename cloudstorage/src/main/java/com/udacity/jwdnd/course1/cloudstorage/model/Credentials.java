@@ -14,14 +14,14 @@ public class Credentials {
 	 private String username;
 	 private String key;
 	 private String password;
-	 private Integer user_id;
+	 private Integer userid;
 	 private String pass;
 	  
 	public Integer getUser_id() {
-		return user_id;
+		return userid;
 	}
 	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+		this.userid = user_id;
 	}
 	public Integer getCredential_id() {
 		return credentialid;
@@ -58,7 +58,7 @@ public class Credentials {
 	@Override
 	public String toString() {
 		return "Credentials [credential_id=" + credentialid + ", url=" + url + ", username=" + username + ", key="
-				+ key + ", password=" + password + ", user_id=" + user_id + "]";
+				+ key + ", password=" + password + ", user_id=" + userid + "]";
 	}
 	public String getPass() {
 		return pass;

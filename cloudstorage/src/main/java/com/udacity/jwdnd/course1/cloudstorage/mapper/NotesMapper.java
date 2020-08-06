@@ -22,6 +22,9 @@ public interface NotesMapper {
     @Select("SELECT * FROM NOTES WHERE title = #{title}")
     Notes getNotes(String title);
 	
+    @Select("SELECT * FROM NOTES WHERE userid = #{title}")
+    Notes getNotesbyId(int title);
+	
 
 	@Insert("INSERT INTO NOTES (notetitle,notedescription,userid)VALUES(#{notes.notetitle},#{notes.notedescription},#{notes.userid})")
 	int addNotes(@Param("notes")Notes notes);
