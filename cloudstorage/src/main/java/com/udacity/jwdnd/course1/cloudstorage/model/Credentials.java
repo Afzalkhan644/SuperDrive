@@ -15,6 +15,7 @@ public class Credentials {
 	 private String key;
 	 private String password;
 	 private Integer user_id;
+	 private String pass;
 	  
 	public Integer getUser_id() {
 		return user_id;
@@ -58,6 +59,12 @@ public class Credentials {
 	public String toString() {
 		return "Credentials [credential_id=" + credentialid + ", url=" + url + ", username=" + username + ", key="
 				+ key + ", password=" + password + ", user_id=" + user_id + "]";
+	}
+	public String getPass() {
+		return pass;
+	}
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 	 

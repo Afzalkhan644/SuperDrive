@@ -1,14 +1,20 @@
 package com.udacity.jwdnd.course1.cloudstorage.services;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.udacity.jwdnd.course1.cloudstorage.mapper.CredentialsMapper;
-
 import com.udacity.jwdnd.course1.cloudstorage.model.Credentials;
 
 @Service
@@ -47,5 +53,14 @@ public class CredentialsService {
 
     public void deleteCredential(String credusername) {
         credentialsMapper.deleteCredentials(credusername);
+        
     }
+    
+  
+    public String getDecryptedPW(Integer credentialid) {
+        Credentials credential =credentialsMapper.findById(credentialid);
+        return encryptionService.decryptValue(credential.getPassword(), credential.getKey());
+    }
+ 
+
 }

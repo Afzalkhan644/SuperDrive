@@ -11,7 +11,7 @@
     <body class="p-3 mb-2 bg-light text-black">
         <div class="container">
             <div id="logoutDiv">
-                <form action="#" method="POST">
+                <form action="#" th:action="@{/logout}" method="POST">
                     <button type="submit" class="btn btn-secondary float-right">Logout</button>
                 </form>
             </div>
@@ -136,7 +136,7 @@
                                 <tbody th:each="cred : ${credlist}">
                                 <tr v>
                                     <td>
-                                        <button type="button"th:onclick="javascript:showCredentialModal([[${cred}]])" class="btn btn-success">Edit</button>
+                                        <button type="button" th:onclick="javascript:showCredentialModal([[${cred}]] );decryptPassword([[${cred}]])" class="btn btn-success">Edit</button>
                                         <a th:href="@{/credentials/delete(credusername=${cred.username})}" class="btn btn-danger">Delete</a>
                                     </td>
                                     <th scope="row" th:text="${cred.url}">Example Credential URL</th>
@@ -208,6 +208,15 @@
                 $('#credential-password').val(cred && cred.password ? cred.password : '');
                 $('#credentialModal').modal('show');
             }
+            
+           function decryptPassword(cred){
+        	  console.log("hello");
+           	let result = fetch('/decrypt-credential/'+cred.credential_id).then((response) => response.json())
+           	  .then((data) => {
+           		  $('#credential-password').val(data[0].toString());
+           	  });
+           }
+            
         </script>
     </body>
 </html>

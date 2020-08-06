@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+
 import com.udacity.jwdnd.course1.cloudstorage.model.Credentials;
 
 
@@ -34,6 +35,9 @@ public interface CredentialsMapper {
 
 	    @Update("UPDATE CREDENTIALS SET url = #{url}, username = #{username}, key = #{key}, password = #{password} WHERE credentialid = #{credentialid}")
 	    public int updateCredentials(Credentials credential);
+
+	    @Select("select * from credentials where credentials.credentialid = #{id}")
+	    Credentials findById(@Param("id") Integer id);
 
 	}
 
