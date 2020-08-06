@@ -47,14 +47,14 @@ public class CredentialsController {
         	   
             credentialsService.addCredential(credential, superUser.getUserid());
         }
-        return "redirect:/home";
+       return "redirect:/result?success";	
     }
 
     @GetMapping("/delete")
     public String deleteCredentials(@RequestParam("credusername") String credusername) {
        
             credentialsService.deleteCredential(credusername);
-            return "redirect:/home";
+            return "redirect:/result?success";	
        
     }
     

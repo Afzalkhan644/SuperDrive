@@ -35,10 +35,15 @@ public class FileController {
 
 	@PostMapping
 	public String uploadFile(@RequestParam("file") MultipartFile file,Authentication auth,Notes notes) {
-		fileService.SaveFile(file,auth);	
-		return "redirect:/home";
+		
+		if(fileService.getAfile(file.getOriginalFilename())==null)
+		{fileService.SaveFile(file,auth);	
+		 return "redirect:/result?success";	
+		 }
+	else {
+		return "redirect:/result?error";	
 	}
-
+		}
 	
 @RequestMapping(value="/delete")
 public String delete(Model model,@RequestParam("filename") String filename)
@@ -46,7 +51,7 @@ public String delete(Model model,@RequestParam("filename") String filename)
    fileService.deleteFile(filename);
   // 
     model.addAttribute("filelist", fileService.getFiles());
-    return "redirect:/home";
+    return "redirect:/result?success";	
 }
 	
 @RequestMapping(value = "/download")

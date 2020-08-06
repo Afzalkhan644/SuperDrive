@@ -45,14 +45,14 @@ public class NotesController {
     	notesService.notesSave(notes);
     	}
     	   
-    	return "redirect:/home";
+    	   return "redirect:/result?success";	
     }
 
     @RequestMapping(value="/delete")
     public String delete(Model model,@RequestParam("notename") String notename)
     {
     	notesService.deleteNote(notename);
-        return "redirect:/home";
+    	 return "redirect:/result?success";	
     }
   
         
