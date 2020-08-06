@@ -24,7 +24,7 @@ import java.util.List;
 class CloudStorageApplicationTests {
 
 	private static String USER_NAME = "userName";
-	private static String USER_NAME_FIELD = "userName";
+	private static String USER_NAME_FIELD = "username";
 	private static String PASSWORD = "password";
 	private static String PASSWORD_FIELD = "password";
 
@@ -143,7 +143,7 @@ class CloudStorageApplicationTests {
 	@Order(5)
 	public void unauthorizedHomePage() {
 		driver.get("http://localhost:" + this.port + "/home.html");
-		Assertions.assertEquals("SuperDuperError", driver.getTitle());
+		Assertions.assertEquals("Login", driver.getTitle());
 	}
 
 	@Test
@@ -173,7 +173,7 @@ class CloudStorageApplicationTests {
 		noteDescription.sendKeys("Note creation test");
 		WebElement noteSubmit = driver.findElement(By.id("save-note-id"));
 		noteSubmit.click();
-		Assertions.assertEquals("Home", driver.getTitle());
+		Assertions.assertEquals("Result", driver.getTitle());
 
 		jse.executeScript("arguments[0].click()", driver.findElement(By.xpath("//a[@href='#nav-notes']")));
 
